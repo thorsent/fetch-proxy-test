@@ -1,0 +1,10 @@
+{
+	"name": "fetch-proxy-test",
+	"version": "1.0.0",
+	"main": "index.mjs",
+	"devDependencies": {
+        "node-fetch": "3.3.2",
+        "global-agent": "3.0.0",
+        "fs-extra": "11.2.0"
+	}
+}
