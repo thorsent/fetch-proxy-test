@@ -2,14 +2,16 @@ import path from "path";
 import node_fetch from "node-fetch";
 import fse from "fs-extra";
 import global_agent from "global-agent";
+import { HttpsProxyAgent } from "https-proxy-agent";
 
 export const download = async (url, folder) => {
 	const parseContentDisposition = /filename="?([^"]+)"?/;
 
 	return new Promise(async (resolve) => {
 		try {
+            const agent = new HttpsProxyAgent(process.env["HTTPS_PROXY"]);
 			console.log("Downloading from", url);
-			const response = await node_fetch(url);
+			const response = await node_fetch(url, {agent});
 			const header = response.headers.get("Content-Disposition");
 			const filename = header?.match(parseContentDisposition)?.[1];
 			const fileLocation = path.join(folder, filename);

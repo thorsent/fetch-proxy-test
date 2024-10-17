@@ -5,6 +5,7 @@
 	"devDependencies": {
         "node-fetch": "3.3.2",
         "global-agent": "3.0.0",
-        "fs-extra": "11.2.0"
+        "fs-extra": "11.2.0",
+		"https-proxy-agent": "7.0.5"
 	}
 }
